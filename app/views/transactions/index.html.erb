@@ -31,7 +31,7 @@
   <ul>
     <li>
     Balance for <%= user["name"]%>:
-    test test KC
+    <%=transactions.where({"to_user_id"=> user["id"]}).sum("amount") - transactions.where({"from_user_id"=> user["id"]}).sum("amount") %>  KC
     </li>
   </ul>
 <%end%>
